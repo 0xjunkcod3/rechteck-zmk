@@ -13,6 +13,15 @@
 #define NAV_L 1
 
 / {
+    macros {
+        ctrl_alt_del: ctrl_alt_del {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LEFT_ALT &kp DEL>;
+            label = "CTRL_ALT_DEL";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -47,7 +56,7 @@
             label = "Nav";
             bindings = <
 &bt BT_CLR    &kp F1    &kp F2    &kp F3     &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10    &kp F11  &kp F12  &kp DEL
-&bt BT_SEL 0  &trans    &kp UP    &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans   &trans
+&bt BT_SEL 0  &trans    &kp UP    &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans   &ctrl_alt_del
 &bt BT_SEL 1  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans            &trans
 &bt BT_SEL 2  &trans    &trans    &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans                       &trans
 &bt BT_SEL 3  &trans              &trans                     &trans                          &kp PSCRN  &trans   &trans   &kp C_AL_TEXT_EDITOR
